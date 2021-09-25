@@ -1,14 +1,29 @@
 # Fronted
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.7.
+
+
 #Login CREAD : 
 demo@gmail.com
 
 admin
+
+#Login Screen 
+![img_1.png](img_1.png)
+
+#Dashboard Profile
+
+![img_2.png](img_2.png)
+
+#Category List
+![img_3.png](img_3.png)
+
+#Create And Update Category
+![img_4.png](img_4.png)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
