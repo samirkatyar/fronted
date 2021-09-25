@@ -1,0 +1,10 @@
+<div class="login-main">
+  <div class="login-inner">
+    <h1><strong>Welcome back!</strong></h1>
+    <h4>Login</h4>
+    <div><input matInput type="email" placeholder="Email" [(ngModel)]="cred.email"></div>
+    <div><input matInput type="password" placeholder="Password" [(ngModel)]="cred.password"></div>
+    <div><button (click)="doLogin()" class="login-button">Login</button></div>
+  </div>
+</div>
+

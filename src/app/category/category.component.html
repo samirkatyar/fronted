@@ -1,0 +1,56 @@
+<div class="add-btn" (click)="addCategory(addCategorys)">
+  <mat-icon class="material-icons-outlined">add_circle_outline</mat-icon>
+  <p>Add Category</p>
+</div>
+<div class="category-item">
+ <ul>
+   <ng-template #recursiveList let-list>
+     <li *ngFor="let category of categoryData">
+       <div class="list-data">
+         <div>
+           {{category.title}}
+         </div>
+         <div>
+           {{category.description}}
+         </div>
+         <div>
+           {{category.status}}
+         </div>
+         <mat-icon class="material-icons-outlined" (click)="addCategory(addCategorys,category)">edit</mat-icon>
+         <mat-icon class="material-icons-outlined" (click)="addSubCategory(addCategorys,category)">add_circle_outline</mat-icon>
+         <mat-icon class="material-icons-outlined" (click)="deleteCategory(category?._id)">delete</mat-icon>
+         <mat-icon class="material-icons-outlined" (click)="getCategory(category?._id)">expand_more</mat-icon>
+       </div>
+       <ul *ngIf="category?.categories?.length>0">
+         <ng-container *ngTemplateOutlet="recursiveList; context: {$implicit: category.categories}"></ng-container>
+       </ul>
+     </li>
+   </ng-template>
+   <ng-container *ngTemplateOutlet="recursiveList; context: {$implicit: categoryData}"></ng-container>
+ </ul>
+</div>
+<ng-template #addCategorys>
+  <h2 mat-dialog-title>Category</h2>
+
+  <mat-dialog-content class="mat-typography">
+   <div>
+     <mat-form-field  appearance="standard">
+       <mat-label>Title</mat-label>
+       <input matInput placeholder="Title" [(ngModel)]="category.title" >
+     </mat-form-field>
+     <mat-form-field  appearance="standard">
+       <mat-label>Description</mat-label>
+       <input matInput placeholder="Description" [(ngModel)]="category.description" >
+     </mat-form-field>
+     <mat-form-field  appearance="standard">
+       <mat-label>Status</mat-label>
+       <input matInput placeholder="Status" [(ngModel)]="category.status"  >
+     </mat-form-field>
+   </div>
+
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="parentCategory? createChield():createCategory()">Add Category</button>
+  </mat-dialog-actions>
+</ng-template>

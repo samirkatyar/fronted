@@ -1,0 +1,28 @@
+<div class="dashboard-main">
+  <div class="dashboard-header">
+    <div class="dashboard-heading">
+      <h1>Dashboard</h1>
+    </div>
+    <div class="dashboard-menu">
+      <div class="user-menu" mat-button [matMenuTriggerFor]="menu"><mat-icon class="material-icons-outlined">account_circle</mat-icon></div>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>My Profile</button>
+        <button mat-menu-item (click)="Logout()">Logout</button>
+      </mat-menu>
+    </div>
+  </div>
+  <div class="dashboard-content">
+    <div class="dashboard-sideNav">
+      <div class="menu">
+        <ul>
+          <li>
+            <a (click)="showCategory=true">
+              Category
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div *ngIf="showCategory" class="category-body"><app-category></app-category></div>
+  </div>
+</div>
